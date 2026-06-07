@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "tech-nerd"
+title: "antinormies"
 ---
 
-<section class="section">
+<section id="tech-nerd" class="section">
   <h2 class="section-title">Tech Nerd</h2>
 
   {% assign tech_posts = site.categories['tech-nerd'] %}
@@ -11,15 +11,15 @@ title: "tech-nerd"
     <ul class="post-list">
       {% for post in tech_posts %}
         <li>
-          <div class="post-item">
+          <a href="{{ post.url | relative_url }}" class="post-item">
             <span class="post-date muted">{{ post.date | date: "%Y-%m-%d" }}</span>
-            <div>
-              <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+            <span class="post-info">
+              <span class="post-title">{{ post.title }}</span>
               {% if post.description %}
-                <div class="post-desc muted">{{ post.description }}</div>
+                <span class="post-desc muted">{{ post.description }}</span>
               {% endif %}
-            </div>
-          </div>
+            </span>
+          </a>
         </li>
       {% endfor %}
     </ul>
@@ -28,6 +28,27 @@ title: "tech-nerd"
   {% endif %}
 </section>
 
-<nav class="nav-links">
-  <a href="{{ '/poetry/' | relative_url }}">Read poetry &rarr;</a>
-</nav>
+<section id="poetry" class="section">
+  <h2 class="section-title">Poetry</h2>
+
+  {% assign poetry_posts = site.categories['poetry'] %}
+  {% if poetry_posts.size > 0 %}
+    <ul class="post-list">
+      {% for post in poetry_posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}" class="post-item">
+            <span class="post-date muted">{{ post.date | date: "%Y-%m-%d" }}</span>
+            <span class="post-info">
+              <span class="post-title">{{ post.title }}</span>
+              {% if post.description %}
+                <span class="post-desc muted">{{ post.description }}</span>
+              {% endif %}
+            </span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="empty-state muted">No poems yet.</p>
+  {% endif %}
+</section>

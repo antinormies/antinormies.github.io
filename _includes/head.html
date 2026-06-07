@@ -3,3 +3,33 @@
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 {% seo %}
+<script>
+(function() {
+  var key = 'antinormies-theme';
+  var stored = localStorage.getItem(key);
+  var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  var isLight = stored === 'light' || (!stored && prefersLight);
+
+  if (isLight) {
+    document.body.classList.add('light');
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('themeToggle');
+    if (!btn) return;
+
+    var updateLabel = function(light) {
+      btn.textContent = light ? '🌙' : '☀️';
+    };
+
+    updateLabel(document.body.classList.contains('light'));
+
+    btn.addEventListener('click', function() {
+      document.body.classList.toggle('light');
+      var nowLight = document.body.classList.contains('light');
+      localStorage.setItem(key, nowLight ? 'light' : 'dark');
+      updateLabel(nowLight);
+    });
+  });
+})();
+</script>

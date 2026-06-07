@@ -12,15 +12,15 @@ permalink: /poetry/
     <ul class="post-list">
       {% for post in poetry_posts %}
         <li>
-          <div class="post-item">
+          <a href="{{ post.url | relative_url }}" class="post-item">
             <span class="post-date muted">{{ post.date | date: "%Y-%m-%d" }}</span>
-            <div>
-              <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+            <span class="post-info">
+              <span class="post-title">{{ post.title }}</span>
               {% if post.description %}
-                <div class="post-desc muted">{{ post.description }}</div>
+                <span class="post-desc muted">{{ post.description }}</span>
               {% endif %}
-            </div>
-          </div>
+            </span>
+          </a>
         </li>
       {% endfor %}
     </ul>
@@ -29,6 +29,6 @@ permalink: /poetry/
   {% endif %}
 </section>
 
-<nav class="nav-links">
-  <a href="{{ '/' | relative_url }}">&larr; Back to tech nerd</a>
+<nav class="post-nav">
+  <a href="{{ '/' | relative_url }}">&larr; All posts</a>
 </nav>

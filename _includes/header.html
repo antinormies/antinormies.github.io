@@ -1,4 +1,10 @@
 <header class="site-header">
   <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
   <div class="tagline muted">{{ site.description }}</div>
+  <nav class="site-nav">
+    <a href="{{ '/#tech-nerd' | relative_url }}">Tech Nerd</a>
+    <a href="{{ '/#poetry' | relative_url }}">Poetry</a>
+    <span class="spacer"></span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
+  </nav>
 </header>

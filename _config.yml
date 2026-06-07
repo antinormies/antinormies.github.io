@@ -4,6 +4,7 @@ author: "antinormies"
 url: "https://antinormies.github.io"
 baseurl: ""
 markdown: kramdown
+future: true
 permalink: "/:categories/:title/"
 
 plugins:

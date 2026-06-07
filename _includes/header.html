@@ -1,17 +1,4 @@
-<div class="terminal-header">
-  <div class="prompt">
-    <span class="prompt-user">{{ site.terminal.username }}</span>
-    <span class="prompt-at">@</span>
-    <span class="prompt-host">{{ site.terminal.hostname }}</span>
-    <span class="prompt-colon">:~</span>
-    <span class="prompt-char">{{ site.terminal.prompt_char }}</span>
-    <span class="cursor">▊</span>
-  </div>
-  <div class="ascii-title">
-  _  _ _   _ ___  ___  __ _ _  _ ___ _  _  ___
-  | || | | | / _ \/ _ \/ _` | || / __| || |/ _ \
-  | \/ | |_| \_, /\___/\__, |\_,_\__ \_,_/\___/
-  |_/\_\\___/  /_/        |_|           |_|
-  </div>
-  <div class="tagline">{{ site.description }}</div>
-</div>
+<header class="site-header">
+  <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+  <div class="tagline muted">{{ site.description }}</div>
+</header>

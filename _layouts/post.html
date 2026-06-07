@@ -1,40 +1,23 @@
 ---
 layout: default
 ---
-<article class="post terminal-post">
-  <div class="post-header">
-    <div class="prompt">
-      <span class="prompt-user">{{ site.terminal.username }}</span>
-      <span class="prompt-at">@</span>
-      <span class="prompt-host">{{ site.terminal.hostname }}</span>
-      <span class="prompt-colon">:~/</span>
-      <span class="prompt-path">posts/{{ page.categories | first }}</span>
-      <span class="prompt-char">{{ site.terminal.prompt_char }}</span>
-    </div>
+<article class="post">
+  <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-meta muted">
-      <span class="date">{{ page.date | date: "%Y-%m-%d %H:%M" }}</span>
-      <span class="sep">|</span>
-      <span class="category">{{ page.categories | join: ", " }}</span>
+      <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+      {% if page.categories %}
+      <span class="sep">/</span>
+      <span>{{ page.categories | join: ", " }}</span>
+      {% endif %}
     </div>
-  </div>
-
-  <hr class="separator">
+  </header>
 
   <div class="post-content">
     {{ content }}
   </div>
 
-  <hr class="separator">
-
-  <div class="post-nav">
-    <div class="prompt muted">
-      <span class="prompt-user">{{ site.terminal.username }}</span>
-      <span class="prompt-at">@</span>
-      <span class="prompt-host">{{ site.terminal.hostname }}</span>
-      <span class="prompt-colon">:~</span>
-      <span class="prompt-char">{{ site.terminal.prompt_char }}</span>
-      <a href="{{ '/' | relative_url }}" class="back-link">cd ~/</a>
-    </div>
-  </div>
+  <nav class="post-nav">
+    <a href="{{ '/' | relative_url }}">&larr; Back</a>
+  </nav>
 </article>

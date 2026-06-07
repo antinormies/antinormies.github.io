@@ -23,7 +23,3 @@ defaults:
     values:
       layout: "page"
 
-terminal:
-  username: "antinormies"
-  hostname: "github.io"
-  prompt_char: "$"

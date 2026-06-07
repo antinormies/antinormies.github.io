@@ -1,16 +1,3 @@
-<footer class="terminal-footer">
-  <div class="prompt muted">
-    <span class="prompt-user">{{ site.terminal.username }}</span>
-    <span class="prompt-at">@</span>
-    <span class="prompt-host">{{ site.terminal.hostname }}</span>
-    <span class="prompt-colon">:~</span>
-    <span class="prompt-char">{{ site.terminal.prompt_char }}</span>
-    exit
-  </div>
-  <div class="footer-links">
-    <a href="https://github.com/antinormies">github</a>
-    <span class="sep">|</span>
-    <a href="{{ '/feed.xml' | relative_url }}">rss</a>
-  </div>
-  <div class="footer-copy muted">&copy; {{ site.time | date: '%Y' }} {{ site.author }}</div>
+<footer class="site-footer muted">
+  &copy; {{ site.time | date: '%Y' }} {{ site.author }}
 </footer>

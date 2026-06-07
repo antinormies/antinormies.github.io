@@ -1,0 +1,68 @@
+---
+layout: default
+title: "~/poetry"
+permalink: /poetry/
+---
+
+<section class="section">
+  <div class="section-header">
+    <div class="prompt">
+      <span class="prompt-user">{{ site.terminal.username }}</span>
+      <span class="prompt-at">@</span>
+      <span class="prompt-host">{{ site.terminal.hostname }}</span>
+      <span class="prompt-colon">:~/</span>
+      <span class="prompt-path">poetry</span>
+      <span class="prompt-char">{{ site.terminal.prompt_char }}</span>
+      ls -la
+    </div>
+  </div>
+
+  <hr class="separator">
+
+  <div class="post-listing">
+    <div class="ls-header muted">
+      <span class="ls-perms">permissions</span>
+      <span class="ls-size">size</span>
+      <span class="ls-date">modified</span>
+      <span class="ls-name">name</span>
+    </div>
+
+    {% assign poetry_posts = site.categories['poetry'] %}
+    {% if poetry_posts.size > 0 %}
+      {% for post in poetry_posts %}
+        <div class="ls-entry">
+          <span class="ls-perms">-rw-r--r--</span>
+          <span class="ls-size">{{ post.content | number_of_words | divided_by: 100 | plus: 1 }}KB</span>
+          <span class="ls-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+          <span class="ls-name">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </span>
+          {% if post.description %}
+          <div class="ls-desc muted">{{ post.description }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="ls-entry muted">
+        <span class="ls-perms">----------</span>
+        <span class="ls-size">0</span>
+        <span class="ls-date">------</span>
+        <span class="ls-name">no poems yet — the ink is still drying</span>
+      </div>
+    {% endif %}
+  </div>
+
+  <hr class="separator">
+
+  <div class="nav-links">
+    <div class="prompt">
+      <span class="prompt-user">{{ site.terminal.username }}</span>
+      <span class="prompt-at">@</span>
+      <span class="prompt-host">{{ site.terminal.hostname }}</span>
+      <span class="prompt-colon">:~</span>
+      <span class="prompt-char">{{ site.terminal.prompt_char }}</span>
+      cd <a href="{{ '/' | relative_url }}">..</a>
+      <span class="cursor">▊</span>
+    </div>
+  </div>
+</section>

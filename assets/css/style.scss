@@ -1,0 +1,303 @@
+---
+---
+
+$bg: #0a0a0a;
+$fg: #00ff41;
+$fg-dim: #005a1a;
+$fg-muted: #0a7a1a;
+$link: #00ff41;
+$link-hover: #ffffff;
+$border: #00ff41;
+$selection: rgba(0, 255, 65, 0.3);
+
+$font: 'Courier New', Courier, monospace;
+$font-size: 15px;
+$line-height: 1.7;
+
+@mixin scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background: $selection;
+}
+
+html {
+  background: $bg;
+}
+
+body {
+  background: $bg;
+  color: $fg;
+  font-family: $font;
+  font-size: $font-size;
+  line-height: $line-height;
+  min-height: 100vh;
+  @include scanlines;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-hover;
+    text-decoration: underline;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.muted {
+  color: $fg-muted;
+}
+
+.separator {
+  border: none;
+  border-top: 1px solid $fg-dim;
+  margin: 16px 0;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes boot {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.terminal-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $fg-dim;
+
+  .ascii-title {
+    font-size: 11px;
+    line-height: 1.2;
+    color: $fg;
+    white-space: pre;
+    margin: 12px 0;
+    overflow-x: auto;
+  }
+
+  .tagline {
+    color: $fg-muted;
+    font-style: italic;
+  }
+}
+
+.prompt {
+  font-size: $font-size;
+  margin-bottom: 8px;
+
+  .prompt-user {
+    color: $fg;
+  }
+
+  .prompt-at {
+    color: $fg-muted;
+  }
+
+  .prompt-host {
+    color: $link;
+  }
+
+  .prompt-colon {
+    color: $fg-muted;
+  }
+
+  .prompt-path {
+    color: $fg;
+  }
+
+  .prompt-char {
+    color: $fg-muted;
+  }
+}
+
+.section {
+  margin-bottom: 24px;
+
+  .section-header {
+    margin-bottom: 8px;
+  }
+}
+
+.post-listing {
+  font-size: $font-size;
+
+  .ls-header {
+    display: flex;
+    gap: 16px;
+    padding: 4px 0;
+    border-bottom: 1px solid $fg-dim;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .ls-entry {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba($fg-dim, 0.3);
+    display: grid;
+    grid-template-columns: 100px 60px 110px 1fr;
+    gap: 16px;
+    align-items: baseline;
+
+    .ls-desc {
+      grid-column: 1 / -1;
+      font-size: 13px;
+      padding-left: 0;
+      margin-top: 2px;
+    }
+  }
+}
+
+.post-content {
+  line-height: $line-height;
+
+  h1, h2, h3, h4 {
+    color: $fg;
+    margin: 24px 0 12px;
+  }
+
+  h1 { font-size: 1.4em; }
+  h2 { font-size: 1.2em; }
+  h3 { font-size: 1.1em; }
+
+  p {
+    margin-bottom: 16px;
+  }
+
+  ul, ol {
+    margin: 12px 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  code {
+    background: rgba($fg, 0.1);
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-family: $font;
+    font-size: 0.9em;
+  }
+
+  pre {
+    background: rgba($fg, 0.05);
+    border: 1px solid $fg-dim;
+    padding: 16px;
+    overflow-x: auto;
+    margin: 16px 0;
+
+    code {
+      background: none;
+      padding: 0;
+    }
+  }
+
+  blockquote {
+    border-left: 3px solid $fg-dim;
+    padding-left: 16px;
+    margin: 16px 0;
+    color: $fg-muted;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid $fg-dim;
+    margin: 24px 0;
+  }
+
+  img {
+    max-width: 100%;
+    border: 1px solid $fg-dim;
+    margin: 16px 0;
+  }
+}
+
+.post-header {
+  margin-bottom: 16px;
+
+  .post-title {
+    font-size: 1.3em;
+    margin: 12px 0 8px;
+    color: $fg;
+  }
+
+  .post-meta {
+    font-size: 13px;
+  }
+}
+
+.post-nav {
+  margin-top: 24px;
+
+  .back-link {
+    margin-left: 8px;
+  }
+}
+
+.terminal-footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid $fg-dim;
+  text-align: center;
+  font-size: 13px;
+
+  .footer-links {
+    margin: 8px 0;
+
+    .sep {
+      margin: 0 8px;
+      color: $fg-dim;
+    }
+  }
+
+  .footer-copy {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 12px;
+  }
+
+  .post-listing {
+    .ls-entry {
+      grid-template-columns: 70px 50px 85px 1fr;
+      gap: 8px;
+      font-size: 13px;
+    }
+  }
+
+  .terminal-header .ascii-title {
+    font-size: 8px;
+  }
+}

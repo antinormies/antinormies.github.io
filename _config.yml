@@ -1,0 +1,28 @@
+title: "antinormies"
+description: "A poet who love machine and trapped as Engineer"
+author: "antinormies"
+url: "https://antinormies.github.io"
+baseurl: ""
+markdown: kramdown
+permalink: "/:categories/:title/"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+terminal:
+  username: "antinormies"
+  hostname: "github.io"
+  prompt_char: "$"

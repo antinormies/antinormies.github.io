@@ -11,7 +11,7 @@ description: "CSAE safety policy for Freesky — how we combat child sexual abus
 
 Freesky is an end-to-end encrypted community messaging application. This policy describes our commitment to preventing, detecting, and responding to any content that promotes, solicits, or depicts the sexual exploitation of children (CSAE).
 
-**Contact:** admin@freesky.app | walawe.fun/freesky-safety-standards
+**Contact:** daniootsutsuki@gmail.com
 
 ---
 
@@ -67,4 +67,4 @@ Suspected CSAE content can also be reported to NCMEC via their CyberTipline: htt
 
 ## 8. Policy Updates
 
-Updates will be posted at https://walawe.fun/freesky-safety-standards
+Updates will be posted at [https://walawe.fun/freesky-safety-standards](https://antinormies.github.io/tech-nerd/freesky-safety-standards/)
